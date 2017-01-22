@@ -14,6 +14,7 @@ module RTanque
 
     def tick
       @ticks += 1
+      { explosion: @ticks, x: @position.x, y: @position.y }
     end
 
     def dead?

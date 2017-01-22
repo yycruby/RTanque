@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+require 'pathname'
+ENV['BUNDLE_GEMFILE'] ||= File.expand_path(
+  '../../Gemfile',
+  Pathname.new(__FILE__).realpath
+)
+
+$LOAD_PATH << File.expand_path('../../lib', __FILE__)
+require 'rubygems'
+require 'thor'
+require 'rtanque'
+require 'rtanque/runner'
+require 'octokit'
+
+brain_paths = [
+  'sample_bots/seek_and_destroy.rb',
+  'sample_bots/seek_and_destroy.rb'
+]
+
+runner = RTanque::Runner.new(1200, 700, 500, nil)
+brain_paths.each { |brain_path|
+  begin
+    runner.add_brain_path(brain_path)
+  rescue RTanque::Runner::LoadError => e
+    say e.message, :red
+    exit false
+  end
+}
+runner.start(false)
+
+puts runner.match.match_data.inspect

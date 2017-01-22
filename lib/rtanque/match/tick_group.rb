@@ -34,16 +34,18 @@ module RTanque
       end
 
       def tick
+        record = []
         self.delete_if do |member|
           if member.dead?
             true
           else
             @pre_tick.call(member) if @pre_tick
-            member.tick
+            record << member.tick
             @post_tick.call(member) if @post_tick
             false
           end
         end
+        record
       end
     end
   end

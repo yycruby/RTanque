@@ -2,6 +2,7 @@ module RTanque
   module Movable
     def tick
       update_position
+      { x: @position.x, y: @position.y }
     end
 
     def dead?

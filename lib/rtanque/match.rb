@@ -1,8 +1,11 @@
+require 'json'
+
 module RTanque
   class Match
     attr_reader :arena, :bots, :shells, :explosions, :ticks, :max_ticks, :teams
+    attr_reader :match_data
 
-    def initialize(arena, max_ticks = nil, teams = false)
+    def initialize(arena, max_ticks = nil, teams = false, output = nil)
       @arena = arena
       @max_ticks = max_ticks
       @teams = teams
@@ -14,6 +17,8 @@ module RTanque
       @bots.post_tick(&method(:post_bot_tick))
       @shells.pre_tick(&method(:pre_shell_tick))
       @stopped = false
+      @output = output
+      @match_data = []
     end
 
     def teams=(bool)
@@ -64,9 +69,11 @@ module RTanque
     end
 
     def tick
-      self.shells.tick
-      self.bots.tick
-      self.explosions.tick
+      @match_data << {
+        shells: self.shells.tick,
+        bots: self.bots.tick,
+        explosions: self.explosions.tick
+      }
       @ticks += 1
     end
   end

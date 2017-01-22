@@ -76,6 +76,13 @@ module RTanque
       self.tick_brain
       self.adjust_fire_power
       super
+      {
+        x: position.x,
+        y: position.y,
+        heading: heading.to_degrees.to_f,
+        turret: turret.heading.to_degrees.to_f,
+        radar: radar.heading.to_degrees
+      }
     end
 
     def tick_brain
