@@ -31,10 +31,10 @@ module RTanque
       if gui
         require 'rtanque/gui'
         window = RTanque::Gui::Window.new(self.match)
-        trap(:INT) { window.close }
+        #trap(:INT) { window.close }
         window.show
       else
-        trap(:INT) { self.match.stop }
+        #trap(:INT) { self.match.stop }
         self.match.start
       end
     end
