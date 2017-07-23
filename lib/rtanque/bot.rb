@@ -77,6 +77,7 @@ module RTanque
       self.adjust_fire_power
       super
       {
+        name: name,
         x: position.x,
         y: position.y,
         heading: heading.to_degrees.to_f,
