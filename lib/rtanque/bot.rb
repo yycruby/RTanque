@@ -80,6 +80,7 @@ module RTanque
         name: name,
         x: position.x,
         y: position.y,
+        health: self.health,
         heading: heading.to_degrees.to_f,
         turret: turret.heading.to_degrees.to_f,
         radar: radar.heading.to_degrees
