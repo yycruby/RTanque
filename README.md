@@ -16,7 +16,7 @@ This is not an original idea, see [influences](https://github.com/awilliams/RTan
 How does it look? Here's a video of a battle:
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=UPBqwOgGlVY
-" target="_blank"><img src="http://img.youtube.com/vi/UPBqwOgGlVY/0.jpg" 
+" target="_blank"><img src="http://img.youtube.com/vi/UPBqwOgGlVY/0.jpg"
 alt="RTanque Demo" width="640" height="480" border="10" /></a>
 
 #### Influences
@@ -33,7 +33,8 @@ RTanque is based on the Java project [Robocode](http://robocode.sourceforge.net/
 ## Requirements
 
  * The [Gosu](https://github.com/jlnr/gosu) library used for rendering has some dependencies. Use the [Gosu getting started](https://github.com/jlnr/gosu/wiki/Getting-Started-on-Linux) to resolve any for your system.
- * Ruby 2.0.0 or 1.9.3 (tested on 1.8.7 and 1.9.2)
+ * Don't forget to install sdl2 if you're on OSX.
+ * Ruby > 2.0.0 (tested on 2.4.3)
 
 ## Quick Start
 
@@ -93,9 +94,9 @@ Ask your friends to upload their bot(s) in a [gist](https://gist.github.com/), w
     bundle exec rtanque get_gist <gist_id> ...
 
 For example, to download [Marksman](https://gist.github.com/SteveRidout/5909793)
-    
+
     bundle exec rtanque get_gist 5909793
-    
+
 If you'd like to publicly share your bot, post its gist id on the wiki https://github.com/awilliams/RTanque/wiki/bot-gists
 
 ## Bot API
